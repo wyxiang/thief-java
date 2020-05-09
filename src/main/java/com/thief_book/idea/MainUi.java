@@ -154,7 +154,7 @@ public class MainUi implements ToolWindowFactory {
 
         JPanel panelRight = new JPanel();
         panelRight.setBorder(JBUI.Borders.empty(0, 20));
-        panelRight.setPreferredSize(new Dimension(280, 30));
+        panelRight.setPreferredSize(new Dimension(420, 30));
         panelRight.add(current, BorderLayout.EAST);
         panelRight.add(total, BorderLayout.EAST);
         //加载按钮
@@ -218,8 +218,8 @@ public class MainUi implements ToolWindowFactory {
      * 刷新按钮
      **/
     private JButton initFreshButton() {
-        JButton refresh = new JButton("〄");
-        refresh.setPreferredSize(new Dimension(20, 20));
+        JButton refresh = new JButton("●");
+        refresh.setPreferredSize(new Dimension(30, 20));
         refresh.setContentAreaFilled(false);
         refresh.setBorderPainted(false);
         refresh.addActionListener(e -> {
@@ -250,7 +250,7 @@ public class MainUi implements ToolWindowFactory {
                 size = persistentState.getFontSize();
                 lineCount = Integer.parseInt(persistentState.getLineCount());
                 lineSpace = Integer.parseInt(persistentState.getLineSpace());
-                textArea.setText("已刷新");
+                textArea.setText("Already reflush ...");
                 current.setText(" " + currentPage / lineCount);
                 total.setText("/" + (totalLine % lineCount == 0 ? totalLine / lineCount : totalLine / lineCount + 1));
                 textArea.setFont(new Font(type, Font.PLAIN, Integer.parseInt(size)));
@@ -265,8 +265,8 @@ public class MainUi implements ToolWindowFactory {
      * 向上翻页按钮
      **/
     private JButton initUpButton() {
-        JButton afterB = new JButton("△");
-        afterB.setPreferredSize(new Dimension(20, 20));
+        JButton afterB = new JButton("▲");
+        afterB.setPreferredSize(new Dimension(30, 20));
         afterB.setContentAreaFilled(false);
         afterB.setBorderPainted(false);
         afterB.addActionListener(e -> {
@@ -292,7 +292,7 @@ public class MainUi implements ToolWindowFactory {
             }
         });
         afterB.registerKeyboardAction(afterB.getActionListeners()[0]
-                , KeyStroke.getKeyStroke(KeyEvent.VK_LEFT, InputEvent.CTRL_DOWN_MASK)
+                , KeyStroke.getKeyStroke(KeyEvent.VK_LEFT, InputEvent.ALT_MASK)
                 , JComponent.WHEN_IN_FOCUSED_WINDOW);
         return afterB;
     }
@@ -301,8 +301,8 @@ public class MainUi implements ToolWindowFactory {
      * 向下翻页按钮
      **/
     private JButton initDownButton() {
-        JButton nextB = new JButton("▽");
-        nextB.setPreferredSize(new Dimension(20, 20));
+        JButton nextB = new JButton("▼");
+        nextB.setPreferredSize(new Dimension(30, 20));
         nextB.setContentAreaFilled(false);
         nextB.setBorderPainted(false);
         nextB.addActionListener(e -> {
@@ -321,7 +321,7 @@ public class MainUi implements ToolWindowFactory {
 
         });
         nextB.registerKeyboardAction(nextB.getActionListeners()[0]
-                , KeyStroke.getKeyStroke(KeyEvent.VK_RIGHT, InputEvent.CTRL_DOWN_MASK)
+                , KeyStroke.getKeyStroke(KeyEvent.VK_RIGHT, InputEvent.ALT_MASK)
                 , JComponent.WHEN_IN_FOCUSED_WINDOW);
         return nextB;
     }
@@ -331,8 +331,8 @@ public class MainUi implements ToolWindowFactory {
      **/
     private JButton initBossButton(JButton[] buttons) {
         //老板键
-        JButton bossB = new JButton(" ");
-        bossB.setPreferredSize(new Dimension(5,5));
+        JButton bossB = new JButton("♨");
+        bossB.setPreferredSize(new Dimension(30, 20));
         bossB.setContentAreaFilled(false);
         bossB.setBorderPainted(false);
         bossB.addActionListener(e -> {
@@ -375,7 +375,7 @@ public class MainUi implements ToolWindowFactory {
             }
             String temp;
             for (int i = 0; i < lineCount && (temp = ra.readLine()) != null; i++) {
-                str.append(new String(temp.getBytes(StandardCharsets.ISO_8859_1), "gbk")).append(nStr);
+                str.append(new String(temp.getBytes(StandardCharsets.ISO_8859_1), "UTF-8")).append(nStr);
                 currentPage++;
             }
             //实例化当前行数
