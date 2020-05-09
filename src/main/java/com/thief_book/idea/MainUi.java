@@ -356,7 +356,7 @@ public class MainUi implements ToolWindowFactory {
             }
         });
         bossB.registerKeyboardAction(bossB.getActionListeners()[0], KeyStroke.getKeyStroke(KeyEvent.VK_X, InputEvent.CTRL_DOWN_MASK), JComponent.WHEN_IN_FOCUSED_WINDOW);
-        bossB.registerKeyboardAction(bossB.getActionListeners()[0], KeyStroke.getKeyStroke(KeyEvent.VK_UP, InputEvent.SHIFT_DOWN_MASK), JComponent.WHEN_IN_FOCUSED_WINDOW);
+        bossB.registerKeyboardAction(bossB.getActionListeners()[0], KeyStroke.getKeyStroke(KeyEvent.VK_UP, InputEvent.ALT_MASK), JComponent.WHEN_IN_FOCUSED_WINDOW);
         return bossB;
     }
 
